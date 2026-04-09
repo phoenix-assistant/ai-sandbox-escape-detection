@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sandboxeval"
+version = "0.1.0"
+description = "AI Sandbox Escape Detection Framework — containment testing for AI models"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Phoenix AI", email = "hello@phoenix-ai.dev" }]
+keywords = ["ai-safety", "containment", "sandbox-escape", "red-teaming", "benchmark"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "openai>=1.0",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic>=0.20"]
+all = ["anthropic>=0.20"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[project.scripts]
+sandboxeval = "sandboxeval.cli:main"
